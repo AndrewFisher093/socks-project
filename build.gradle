@@ -14,9 +14,6 @@ ext {
     allureVersion = '2.13.7'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 dependencies {
     implementation('com.codeborne:selenide:5.16.2')
     testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")

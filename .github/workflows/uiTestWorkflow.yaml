@@ -1,0 +1,21 @@
+on: [push]  # when will be executed
+
+jobs:
+  build:
+    name: UI socks tests run (step1)  # step name
+    runs-on: ubuntu-latest  # we run it on linux
+
+    steps:
+      - name: Clone repo
+      - uses: actions/checkout@v3 # plugin for clone repo + checkout to branch
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3 # plugin for java setup
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+          cache: 'gradle' # how to build
+
+      - name: Execute test with gradle
+          run: |
+            ./gradlew test --info
