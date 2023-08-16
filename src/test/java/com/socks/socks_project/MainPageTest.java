@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.testng.Assert.assertEquals;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.socks.pages.MainPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -28,7 +28,6 @@ public class MainPageTest {
 
     @BeforeMethod
     public void setUp() {
-        Configuration.startMaximized = true;
         open("https://www.jetbrains.com/");
     }
 
