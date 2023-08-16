@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Clone repo
-      - uses: actions/checkout@v3 # plugin for clone repo + checkout to branch
+        uses: actions/checkout@v3 # plugin for clone repo + checkout to branch
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3 # plugin for java setup
@@ -17,5 +17,5 @@ jobs:
           cache: 'gradle' # how to build
 
       - name: Execute test with gradle
-        run: |
+        run: |  # command to run the tests
           ./gradlew test --info
