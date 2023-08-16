@@ -17,5 +17,5 @@ jobs:
           cache: 'gradle' # how to build
 
       - name: Execute test with gradle
-          run: |
-            ./gradlew test --info
+        run: |
+          ./gradlew test --info
