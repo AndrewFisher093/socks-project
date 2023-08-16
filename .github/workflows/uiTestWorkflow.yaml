@@ -15,6 +15,7 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: 'gradle' # how to build
+      - run: ./gradlew build --no-daemon
 
       - name: Execute test with gradle
         run: |  # command to run the tests
