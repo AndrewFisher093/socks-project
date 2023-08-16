@@ -15,9 +15,9 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Build the project
-        run: ./gradlew build --no-daemon
-
       - name: Execute test with gradle
         run: |  # command to run the tests
           ./gradlew test --info
+
+#      - name: Build the project
+#        run: ./gradlew build --no-daemon  # command to build the project and run the tests
