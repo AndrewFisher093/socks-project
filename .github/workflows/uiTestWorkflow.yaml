@@ -1,4 +1,4 @@
-on: [push]  # when will be executed
+on: [ push ]  # when will be executed
 
 jobs:
   build:
@@ -7,15 +7,17 @@ jobs:
 
     steps:
       - name: Clone repo
-      - uses: actions/checkout@v3 # plugin for clone repo + checkout to branch
+        uses: actions/checkout@v3 # plugin for clone repo + checkout to branch
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3 # plugin for java setup
         with:
           java-version: '17'
           distribution: 'corretto'
-          cache: 'gradle' # how to build
+
+      - name: Build the project
+        run: ./gradlew build --no-daemon
 
       - name: Execute test with gradle
-          run: |
-            ./gradlew test --info
+        run: |  # command to run the tests
+          ./gradlew test --info
