@@ -1,14 +1,6 @@
 on: [ push ]  # when will be executed
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-      steps:
-
-
-        - name: Stop containers
-        if: always()
-        run: docker-compose -f "docker-compose.yml" down
   build:
     name: UI socks tests run (step1)  # step name
     runs-on: ubuntu-latest  # we run it on linux
@@ -24,12 +16,12 @@ jobs:
           distribution: 'corretto'
 
       - name: Clone socks
-          run: |
+        run: |
           git clone https://github.com/microservices-demo/microservices-demo
           cd microservices-demo
 
       - name: Start containers
-            run: docker-compose -f deploy/docker-compose/docker-compose.yml up -d
+        run: docker-compose -f deploy/docker-compose/docker-compose.yml up -d
 
       - name: Execute test with gradle
         run: |  # command to run the tests
