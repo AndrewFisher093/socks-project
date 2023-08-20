@@ -12,22 +12,19 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
+@Builder(setterPrefix = "with")
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
 public class UserRegistrationDto {
 
-    @JsonProperty("password")
+    @JsonProperty(value = "password", access = JsonProperty.Access.READ_WRITE)
     private String password;
-
-    @JsonProperty("email")
+    @JsonProperty(value = "email", access = JsonProperty.Access.READ_WRITE)
     private String email;
-
-    @JsonProperty("username")
+    @JsonProperty(value = "username", access = JsonProperty.Access.READ_WRITE)
     private String username;
-
-    @JsonProperty("id")
+    @JsonProperty(value = "id", access = JsonProperty.Access.READ_WRITE)
     private String id;
 }

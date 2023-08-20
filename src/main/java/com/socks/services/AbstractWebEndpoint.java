@@ -15,11 +15,15 @@ import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-//@Slf4j
 public abstract class AbstractWebEndpoint {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
+
+    protected AbstractWebEndpoint() {
+        RestAssured.baseURI = config.baseURI();
+        RestAssured.port = 80;
+    }
 
     protected <T> T extractAsDto(ValidatableResponse validatableResponse, Class<T> tClass) {
         return validatableResponse.extract().body().as(tClass, ObjectMapperType.JACKSON_2);

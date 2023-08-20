@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'org.testng:testng:7.5.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 test {
