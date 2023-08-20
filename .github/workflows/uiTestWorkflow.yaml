@@ -18,14 +18,10 @@ jobs:
       - name: Clone socks
         run: |
           git clone https://github.com/microservices-demo/microservices-demo
-          ls
-          pwd
 
       - name: Start containers
         run: |
-          ls
           cd microservices-demo/deploy/docker-compose
-          ls
           docker-compose -f "docker-compose.yml" up -d -p 80:80
 
       - name: Execute test with gradle
@@ -34,7 +30,9 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "docker-compose.yml" down
+        run: |
+          cd microservices-demo/deploy/docker-compose
+          docker-compose -f "docker-compose.yml" down
 
 #      - name: Build the project
 #        run: ./gradlew build --no-daemon  # command to build the project and run the tests
