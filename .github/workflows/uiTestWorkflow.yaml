@@ -28,6 +28,13 @@ jobs:
         run: |  # command to run the tests
           ./gradlew test --info
 
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            build/test-results/test/*.xml
+
       - name: Stop containers
         if: always()
         run: |
