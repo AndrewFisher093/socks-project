@@ -11,17 +11,28 @@ repositories {
 }
 
 ext {
-    allureVersion = '2.13.7'
+    allureVersion = '2.21.0'
+}
+
+configurations {
+    testCompile
 }
 
 dependencies {
-    implementation('com.codeborne:selenide:5.16.2')
-    testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")
-    implementation('io.github.bonigarcia:webdrivermanager:4.2.0')
-    testImplementation('org.assertj:assertj-core:3.17.1')
-    testImplementation('org.slf4j:slf4j-simple:1.7.29')
+    implementation 'com.codeborne:selenide:6.12.3'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+    implementation "io.qameta.allure:allure-selenide:${allureVersion}"
+    implementation 'org.aeonbits.owner:owner:1.0.12'
+    implementation 'io.rest-assured:rest-assured:5.3.1'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 
-    testImplementation('org.testng:testng:7.1.0')
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.5'
+    testImplementation 'org.testng:testng:7.5.1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.28'
 }
 
 test {

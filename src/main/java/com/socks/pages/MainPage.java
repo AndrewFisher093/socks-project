@@ -1,4 +1,4 @@
-package com.socks.socks_project;
+package com.socks.pages;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
