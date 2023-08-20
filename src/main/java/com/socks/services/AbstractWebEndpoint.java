@@ -11,12 +11,14 @@ import io.restassured.response.ValidatableResponse;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import org.aeonbits.owner.ConfigFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Slf4j
+//@Slf4j
 public abstract class AbstractWebEndpoint {
 
+    protected static final Logger LOGGER = LogManager.getLogger();
     ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
     protected <T> T extractAsDto(ValidatableResponse validatableResponse, Class<T> tClass) {
@@ -34,7 +36,7 @@ public abstract class AbstractWebEndpoint {
 
     private List<Filter> configureFilters() {
         boolean enable = config.enableLoggerConfiguration();
-        log.info("Configure logger {}", enable);
+        LOGGER.info("Configure logger {}", enable);
         return enable ? Arrays.asList(new RequestLoggingFilter(), new ResponseLoggingFilter())
             : Collections.emptyList();
     }
