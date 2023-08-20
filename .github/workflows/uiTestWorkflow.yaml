@@ -16,9 +16,11 @@ jobs:
           distribution: 'corretto'
 
       - name: Clone socks
+        uses: actions/checkout@v3
         run: |
           git clone https://github.com/microservices-demo/microservices-demo
           cd microservices-demo
+          ls
 
       - name: Start containers
         run: docker-compose -f deploy/docker-compose/docker-compose.yml up -d
