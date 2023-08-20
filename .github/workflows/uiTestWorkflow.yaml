@@ -18,12 +18,13 @@ jobs:
       - name: Clone socks
         run: |
           git clone https://github.com/microservices-demo/microservices-demo
-          cd microservices-demo/deploy/docker-compose
           ls
           pwd
 
       - name: Start containers
         run: |
+          ls
+          cd microservices-demo/deploy/docker-compose
           ls
           docker-compose -f "docker-compose.yml" up -d
 
