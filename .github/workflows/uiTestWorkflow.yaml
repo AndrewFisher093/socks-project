@@ -23,7 +23,9 @@ jobs:
           pwd
 
       - name: Start containers
-        run: docker-compose -f "docker-compose.yml" up -d
+        run: |
+          ls
+          docker-compose -f "docker-compose.yml" up -d
 
       - name: Execute test with gradle
         run: |  # command to run the tests
