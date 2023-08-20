@@ -23,6 +23,7 @@ jobs:
         run: |
           cd microservices-demo/deploy/docker-compose
           docker-compose -f "docker-compose.yml" up -d
+          docker ps
 
       - name: Execute test with gradle
         run: |  # command to run the tests
